@@ -3,7 +3,7 @@ import 'package:injectable/injectable.dart';
 
 @singleton
 class CategoryGetApi {
-  late Dio dio = Dio(BaseOptions(baseUrl: 'http://menu.test:8000/api/v1/'));
+  late Dio dio = Dio(BaseOptions(baseUrl: 'http://192.168.1.101:8000/api/v1/'));
 
   // static String serverIP = 'http://menu.test:8000/api/v1/';
 

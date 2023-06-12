@@ -51,7 +51,7 @@ abstract class $AppRouter extends _i12.RootStackRouter {
     HomeRoute.name: (routeData) {
       return _i12.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: _i3.HomePage(),
+        child: const _i3.HomePage(),
       );
     },
     LoginRoute.name: (routeData) {
@@ -69,9 +69,13 @@ abstract class $AppRouter extends _i12.RootStackRouter {
       );
     },
     MenuRoute.name: (routeData) {
+      final args = routeData.argsAs<MenuRouteArgs>();
       return _i12.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i6.MenuPage(),
+        child: _i6.MenuPage(
+          key: args.key,
+          categoryName: args.categoryName,
+        ),
       );
     },
     OnboardingRoute.name: (routeData) {
@@ -196,16 +200,40 @@ class MainRoute extends _i12.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i6.MenuPage]
-class MenuRoute extends _i12.PageRouteInfo<void> {
-  const MenuRoute({List<_i12.PageRouteInfo>? children})
-      : super(
+class MenuRoute extends _i12.PageRouteInfo<MenuRouteArgs> {
+  MenuRoute({
+    _i13.Key? key,
+    required String categoryName,
+    List<_i12.PageRouteInfo>? children,
+  }) : super(
           MenuRoute.name,
+          args: MenuRouteArgs(
+            key: key,
+            categoryName: categoryName,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'MenuRoute';
 
-  static const _i12.PageInfo<void> page = _i12.PageInfo<void>(name);
+  static const _i12.PageInfo<MenuRouteArgs> page =
+      _i12.PageInfo<MenuRouteArgs>(name);
+}
+
+class MenuRouteArgs {
+  const MenuRouteArgs({
+    this.key,
+    required this.categoryName,
+  });
+
+  final _i13.Key? key;
+
+  final String categoryName;
+
+  @override
+  String toString() {
+    return 'MenuRouteArgs{key: $key, categoryName: $categoryName}';
+  }
 }
 
 /// generated route for

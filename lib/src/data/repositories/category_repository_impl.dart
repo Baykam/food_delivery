@@ -1,13 +1,10 @@
 import 'dart:developer';
 
-import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../domain/repositories/i_category_repository.dart';
 import '../models/category/category.dart';
-import '../models/category/category_fail.dart';
 import '../sources/category_get_api.dart';
-import '../sources/exceptions.dart';
 import '../sources/network_info.dart';
 
 @Injectable(as: ICategoryRepository)
@@ -22,13 +19,13 @@ class CategoryRepositoryImpl implements ICategoryRepository {
     // if (await networkInfo.isConnected) {
     //   try {
     final response = await api.getFetchCategory();
-    print(response);
 
     final List<Category> list = [];
 
-    for (var category in response.data) {
-      print(category);
-      final cat = Category.fromJson(category);
+    final categories = response.data as List;
+
+    for (var category in categories) {
+      final cat = Category.fromJson(category as Map<String, dynamic>);
       list.add(cat);
     }
 
@@ -36,7 +33,6 @@ class CategoryRepositoryImpl implements ICategoryRepository {
     //   log(e);
     //   return Category.fromJson(e);
     // }).toList();
-    log(list.length.toString());
     return list;
     // return right(response.data.map((e) => Category.fromJson).toList());
     //   } on ServerException {

@@ -63,8 +63,8 @@ extension GetItInjectableX on _i1.GetIt {
           api: gh<_i4.CategoryGetApi>(),
           networkInfo: gh<_i10.NetworkInfo>(),
         ));
-    gh.factory<_i15.CategoriesCubit>(
-        () => _i15.CategoriesCubit(gh<_i13.ICategoryRepository>()));
+    gh.singleton<_i15.CategoriesCubit>(
+        _i15.CategoriesCubit(gh<_i13.ICategoryRepository>()));
     return this;
   }
 }

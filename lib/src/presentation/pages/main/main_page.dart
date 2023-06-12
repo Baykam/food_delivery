@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../app/di/injector.dart';
 import '../../../../app/router/app_router.gr.dart';
-import '../../../data/models/category/category.dart';
 import '../../common_cubits/categories/categories_cubit.dart';
 
 @RoutePage()
@@ -44,17 +43,3 @@ class MainPage extends StatelessWidget {
     );
   }
 }
-
-
-/*state.when(
-                  initial: () {
-                    
-                  },
-                  failed: (String message) =>
-                      Text('Connection failed: $message'),
-                  loading: () => const Center(
-                    child: CircularProgressIndicator(),
-                  ),
-                  success: (List<Category> categories) =>
-                      const Text('Your validation Success'),
-                ); */

@@ -1,17 +1,16 @@
 import 'dart:developer';
 
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../data/models/category/category.dart';
-import '../../../data/models/category/category_fail.dart';
 import '../../../domain/repositories/i_category_repository.dart';
 
 part 'categories_state.dart';
 part 'categories_cubit.freezed.dart';
 
-@injectable
+@singleton
 class CategoriesCubit extends Cubit<CategoriesState> {
   CategoriesCubit(this._icategoryRepository)
       : super(const CategoriesState.initial());
