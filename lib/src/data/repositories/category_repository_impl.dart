@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:injectable/injectable.dart';
 
 import '../../domain/repositories/i_category_repository.dart';
@@ -19,20 +17,9 @@ class CategoryRepositoryImpl implements ICategoryRepository {
     // if (await networkInfo.isConnected) {
     //   try {
     final response = await api.getFetchCategory();
-
-    final List<Category> list = [];
-
-    final categories = response.data as List;
-
-    for (var category in categories) {
-      final cat = Category.fromJson(category as Map<String, dynamic>);
-      list.add(cat);
-    }
-
-    // final list = response.data.map((e) {
-    //   log(e);
-    //   return Category.fromJson(e);
-    // }).toList();
+    final list = (response.data as List).map((e) {
+      return Category.fromJson(e);
+    }).toList();
     return list;
     // return right(response.data.map((e) => Category.fromJson).toList());
     //   } on ServerException {

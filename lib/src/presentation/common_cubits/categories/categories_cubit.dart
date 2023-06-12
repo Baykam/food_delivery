@@ -24,7 +24,7 @@ class CategoriesCubit extends Cubit<CategoriesState> {
       emit(_Success(categories: result));
     } catch (e) {
       log(e.toString());
-      emit(_Failed(message: 'Smth went wrong!'));
+      emit(const _Failed(message: 'Smth went wrong!'));
     }
   }
 }

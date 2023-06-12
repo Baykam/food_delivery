@@ -22,11 +22,6 @@ class AppRouter extends $AppRouter {
           children: [
             AutoRoute(
               page: HomeRoute.page,
-              children: [
-                AutoRoute(
-                  page: MenuRoute.page,
-                ),
-              ],
             ),
             AutoRoute(
               page: FavoritesRoute.page,
@@ -35,6 +30,9 @@ class AppRouter extends $AppRouter {
               page: ProfileRoute.page,
             ),
           ],
+        ),
+        AutoRoute(
+          page: MenuRoute.page,
         ),
       ];
 }

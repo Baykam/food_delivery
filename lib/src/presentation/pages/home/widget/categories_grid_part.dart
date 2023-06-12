@@ -9,13 +9,12 @@ class _CategoriesGridPart extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Categories',
         ),
       ),
-      body: BlocConsumer<CategoriesCubit, CategoriesState>(
+      body: BlocBuilder<CategoriesCubit, CategoriesState>(
           bloc: _categoriesCubit,
-          listener: (context, state) {},
           builder: (context, state) {
             return state.maybeWhen(
               success: (categories) => GridView.builder(
