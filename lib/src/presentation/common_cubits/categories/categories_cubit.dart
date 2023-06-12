@@ -1,10 +1,11 @@
 import 'dart:developer';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:food_delivery/src/domain/entities/category.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../data/models/category/category.dart';
+import '../../../data/models/category/category_model.dart';
 import '../../../domain/repositories/i_category_repository.dart';
 
 part 'categories_state.dart';

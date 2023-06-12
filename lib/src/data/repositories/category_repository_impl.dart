@@ -1,7 +1,8 @@
+import 'package:food_delivery/src/domain/entities/category.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../domain/repositories/i_category_repository.dart';
-import '../models/category/category.dart';
+import '../models/category/category_model.dart';
 import '../sources/category_get_api.dart';
 import '../sources/network_info.dart';
 
@@ -18,7 +19,8 @@ class CategoryRepositoryImpl implements ICategoryRepository {
     //   try {
     final response = await api.getFetchCategory();
     final list = (response.data as List).map((e) {
-      return Category.fromJson(e);
+      final model = CategoryModel.fromJson(e);
+      return Category.fromModel(model);
     }).toList();
     return list;
     // return right(response.data.map((e) => Category.fromJson).toList());

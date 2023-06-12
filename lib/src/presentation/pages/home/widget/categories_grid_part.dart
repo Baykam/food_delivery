@@ -32,7 +32,8 @@ class _CategoriesGridPart extends StatelessWidget {
                   onTap: () {
                     context.router.push(
                       MenuRoute(
-                        categoryName: categories[index].name!['tk'].toString(),
+                        categoryName: categories[index].name.getText(Locale('tk',),),
+                        categoryId: categories[index].id.id,
                       ),
                     );
                   },
@@ -46,14 +47,14 @@ class _CategoriesGridPart extends StatelessWidget {
                         color: Colors.black12,
                       ),
                       child: Text(
-                        categories[index].name!['tk'].toString(),
+                        categories[index].name.getText(Locale('tk',),),
                         style: const TextStyle(
                           color: Colors.white,
                         ),
                       ),
                     ),
                     child: Image.network(
-                      categories[index].image!['original_url'].toString(),
+                      categories[index].image.getOrigin(),
                       fit: BoxFit.cover,
                     ),
                   ),

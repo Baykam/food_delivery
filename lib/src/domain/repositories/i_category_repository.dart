@@ -1,7 +1,4 @@
-import '../../data/models/category/category.dart';
-import 'package:dartz/dartz.dart';
-
-import '../../data/models/category/category_fail.dart';
+import 'package:food_delivery/src/domain/entities/category.dart';
 
 abstract class ICategoryRepository {
   Future<List<Category>> getCategories();

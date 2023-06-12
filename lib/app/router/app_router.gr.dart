@@ -75,6 +75,7 @@ abstract class $AppRouter extends _i12.RootStackRouter {
         child: _i6.MenuPage(
           key: args.key,
           categoryName: args.categoryName,
+          categoryId: args.categoryId,
         ),
       );
     },
@@ -204,12 +205,14 @@ class MenuRoute extends _i12.PageRouteInfo<MenuRouteArgs> {
   MenuRoute({
     _i13.Key? key,
     required String categoryName,
+    required int categoryId,
     List<_i12.PageRouteInfo>? children,
   }) : super(
           MenuRoute.name,
           args: MenuRouteArgs(
             key: key,
             categoryName: categoryName,
+            categoryId: categoryId,
           ),
           initialChildren: children,
         );
@@ -224,15 +227,18 @@ class MenuRouteArgs {
   const MenuRouteArgs({
     this.key,
     required this.categoryName,
+    required this.categoryId,
   });
 
   final _i13.Key? key;
 
   final String categoryName;
 
+  final int categoryId;
+
   @override
   String toString() {
-    return 'MenuRouteArgs{key: $key, categoryName: $categoryName}';
+    return 'MenuRouteArgs{key: $key, categoryName: $categoryName, categoryId: $categoryId}';
   }
 }
 

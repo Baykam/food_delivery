@@ -6,16 +6,16 @@ part 'category.freezed.dart';
 part 'category.g.dart';
 
 @freezed
-class Category with _$Category {
-  const Category._();
-  factory Category({
+class CategoryModel with _$Category {
+  const CategoryModel._();
+  factory CategoryModel({
     required int id,
     Map<String, String>? name,
     Map<String, String>? image,
   }) = _Category;
-  factory Category.empty() => Category(
+  factory CategoryModel.empty() => CategoryModel(
         id: 1,
       );
-  factory Category.fromJson(Map<String, dynamic> data) =>
+  factory CategoryModel.fromJson(Map<String, dynamic> data) =>
       _$CategoryFromJson(data);
 }
