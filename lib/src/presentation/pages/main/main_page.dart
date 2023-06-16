@@ -5,6 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../app/di/injector.dart';
 import '../../../../app/router/app_router.gr.dart';
 import '../../common_cubits/categories/categories_cubit.dart';
+import '../../common_cubits/counter/counter_cubit.dart';
+import '../../common_cubits/menu/menu_cubit.dart';
 
 @RoutePage()
 class MainPage extends StatelessWidget {
@@ -14,9 +16,15 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider.value(
-          value: i<CategoriesCubit>()..getCategories(),
+        BlocProvider(
+          create: (context) => i<CategoriesCubit>()..getCategories(),
         ),
+        BlocProvider(
+          create: (context) => i<MenuCubit>(),
+        ),
+        BlocProvider(
+          create: (context) => i<CounterCubit>(),
+        )
       ],
       child: AutoTabsScaffold(
         routes: const [HomeRoute(), FavoritesRoute(), ProfileRoute()],

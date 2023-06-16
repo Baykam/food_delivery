@@ -33,7 +33,7 @@ class LoginPage extends StatelessWidget {
                   onPressed: () {
                     _userCubit.login('username', 'password');
                   },
-                  child: Text(
+                  child: const Text(
                     'submit',
                   ),
                 ),
@@ -45,7 +45,7 @@ class LoginPage extends StatelessWidget {
           return const Center(child: CircularProgressIndicator());
         },
         succeeded: (appUser) {
-          return Text('Succeeded');
+          return const Text('Succeeded');
         },
         failed: (message) {
           return Text('failed: $message');

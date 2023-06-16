@@ -1,25 +1,30 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'category_model.dart';
+part of 'menu_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-// ignore: non_constant_identifier_names
-_$_Category _$$_CategoryFromJson(Map<String, dynamic> json) => _$_Category(
+_$_MenuModel _$$_MenuModelFromJson(Map<String, dynamic> json) => _$_MenuModel(
       id: json['id'] as int,
       name: (json['name'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, e as String),
       ),
-      image: (json['image'] as Map<String, dynamic>?)?.map(
+      ingredients: (json['ingredients'] as Map<String, dynamic>?)?.map(
+        (k, e) => MapEntry(k, e as String),
+      ),
+      price: json['price'] as int?,
+      images: (json['images'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, e as String),
       ),
     );
 
-Map<String, dynamic> _$$_CategoryToJson(_$_Category instance) =>
+Map<String, dynamic> _$$_MenuModelToJson(_$_MenuModel instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
-      'image': instance.image,
+      'ingredients': instance.ingredients,
+      'price': instance.price,
+      'images': instance.images,
     };

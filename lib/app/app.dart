@@ -6,12 +6,9 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:food_delivery/app/router/tare_tag_route_observer.dart';
 import 'package:food_delivery/src/presentation/bahaviors/foot_delivery_scroll_behavior.dart';
 import 'package:food_delivery/src/presentation/common_cubits/network/network_cubit.dart';
-import 'package:food_delivery/src/presentation/common_cubits/user/user_cubit.dart';
 import 'package:overlay_support/overlay_support.dart';
 import 'package:food_delivery/app/di/injector.dart';
 import 'package:food_delivery/app/router/app_router.dart';
-
-import '../src/presentation/common_cubits/categories/categories_cubit.dart';
 
 class App extends StatelessWidget with WidgetsBindingObserver {
   App({
@@ -27,8 +24,8 @@ class App extends StatelessWidget with WidgetsBindingObserver {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider.value(
-          value: i<NetworkCubit>(),
+        BlocProvider(
+          create: (context) => i<NetworkCubit>(),
         ),
       ],
       child: OverlaySupport.global(
