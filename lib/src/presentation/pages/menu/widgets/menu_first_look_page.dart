@@ -120,7 +120,7 @@ class MenuLookPage extends StatelessWidget {
                               return IconButton(
                                 onPressed: () {
                                   if (isDisabled) return;
-                                  context.read<CounterCubit>().decrement();
+                                  context.read<CounterCubit>().decrement(id);
                                 },
                                 icon: const Icon(
                                     Icons.remove_circle_outline_outlined),
@@ -133,11 +133,13 @@ class MenuLookPage extends StatelessWidget {
                             },
                           ),
                           title: Text(state.toString()),
-                          trailing: TextButton(
-                              onPressed: () {
-                                context.read<CounterCubit>().increment();
-                              },
-                              child: const Icon(Icons.add_outlined)),
+                          trailing: TextButton.icon(
+                            onPressed: () {
+                              context.read<CounterCubit>().increment(id);
+                            },
+                            icon: const Icon(Icons.add_outlined),
+                            label: Text(''),
+                          ),
                         ),
                       ),
                     ]),
