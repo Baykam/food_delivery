@@ -14,7 +14,7 @@ _$_MenuModel _$$_MenuModelFromJson(Map<String, dynamic> json) => _$_MenuModel(
       ingredients: (json['ingredients'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, e as String),
       ),
-      price: json['price'] as int?,
+      price: (json['price'] as num?)?.toDouble(),
       images: (json['images'] as Map<String, dynamic>?)?.map(
         (k, e) => MapEntry(k, e as String),
       ),

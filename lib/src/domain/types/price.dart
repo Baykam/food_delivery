@@ -1,5 +1,5 @@
 class Price {
-  final int price;
+  final double price;
 
   Price({required this.price});
 }

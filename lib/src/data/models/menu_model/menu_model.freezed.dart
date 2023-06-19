@@ -23,7 +23,7 @@ mixin _$MenuModel {
   int get id => throw _privateConstructorUsedError;
   Map<String, String>? get name => throw _privateConstructorUsedError;
   Map<String, String>? get ingredients => throw _privateConstructorUsedError;
-  int? get price => throw _privateConstructorUsedError;
+  double? get price => throw _privateConstructorUsedError;
   Map<String, String>? get images => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -41,7 +41,7 @@ abstract class $MenuModelCopyWith<$Res> {
       {int id,
       Map<String, String>? name,
       Map<String, String>? ingredients,
-      int? price,
+      double? price,
       Map<String, String>? images});
 }
 
@@ -80,7 +80,7 @@ class _$MenuModelCopyWithImpl<$Res, $Val extends MenuModel>
       price: freezed == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       images: freezed == images
           ? _value.images
           : images // ignore: cast_nullable_to_non_nullable
@@ -100,7 +100,7 @@ abstract class _$$_MenuModelCopyWith<$Res> implements $MenuModelCopyWith<$Res> {
       {int id,
       Map<String, String>? name,
       Map<String, String>? ingredients,
-      int? price,
+      double? price,
       Map<String, String>? images});
 }
 
@@ -137,7 +137,7 @@ class __$$_MenuModelCopyWithImpl<$Res>
       price: freezed == price
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as double?,
       images: freezed == images
           ? _value._images
           : images // ignore: cast_nullable_to_non_nullable
@@ -185,7 +185,7 @@ class _$_MenuModel implements _MenuModel {
   }
 
   @override
-  final int? price;
+  final double? price;
   final Map<String, String>? _images;
   @override
   Map<String, String>? get images {
@@ -243,7 +243,7 @@ abstract class _MenuModel implements MenuModel {
       {required final int id,
       final Map<String, String>? name,
       final Map<String, String>? ingredients,
-      final int? price,
+      final double? price,
       final Map<String, String>? images}) = _$_MenuModel;
 
   factory _MenuModel.fromJson(Map<String, dynamic> json) =
@@ -256,7 +256,7 @@ abstract class _MenuModel implements MenuModel {
   @override
   Map<String, String>? get ingredients;
   @override
-  int? get price;
+  double? get price;
   @override
   Map<String, String>? get images;
   @override

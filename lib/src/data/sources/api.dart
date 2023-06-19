@@ -45,11 +45,11 @@ class CategoryPostApi {
 class MenuGetApi {
   late Dio dio = Dio(BaseOptions(baseUrl: BaseApi().baseUrl));
 
-  Future<dynamic> getMenuApi(int categoryId) async {
+  Future<Response> getMenuApi(int categoryId) async {
     dynamic endPoint = 'dishes?category=$categoryId';
     try {
       final response = await dio.get(endPoint);
-      return response.data['data'] as List;
+      return response;
     } catch (e) {
       rethrow;
     }

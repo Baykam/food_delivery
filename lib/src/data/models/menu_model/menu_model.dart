@@ -9,7 +9,7 @@ class MenuModel with _$MenuModel {
       {required int id,
       Map<String, String>? name,
       Map<String, String>? ingredients,
-      int? price,
+      double? price,
       Map<String, String>? images}) = _MenuModel;
 
   factory MenuModel.fromJson(Map<String, Object?> json) =>

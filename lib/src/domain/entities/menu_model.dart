@@ -26,7 +26,7 @@ class MenuModell {
       id: Id(id: model.id),
       name: Name(text: model.name ?? {}),
       ingredients: Ingredients(text: model.ingredients ?? {}),
-      price: Price(price: model.price ?? 0),
+      price: Price(price: model.price ?? 0.0),
       images: FoodDeliveryImage(image: model.images ?? {}),
     );
   }

@@ -9,33 +9,39 @@ import 'package:carousel_slider/carousel_slider.dart';
 part './widgets/menu_first_look_page.dart';
 
 @RoutePage()
-class MenuPage extends StatelessWidget {
-  MenuPage({super.key, required this.categoryName, required this.categoryId});
+class MenuPage extends StatefulWidget {
+  const MenuPage(
+      {super.key, required this.categoryName, required this.categoryId});
   final String categoryName;
   final int categoryId;
+
+  @override
+  State<MenuPage> createState() => _MenuPageState();
+}
+
+class _MenuPageState extends State<MenuPage> {
   final _menuCubit = i<MenuCubit>();
 
   /// Todo create cubit
   /// create request to this url => 'dishes?category=$categoryId'
   /// create model
   /// create entity
+  ///
+
+  @override
+  void initState() {
+    super.initState();
+    _menuCubit.getMenus(widget.categoryId);
+  }
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<MenuCubit, MenuState>(
-      listener: (context, state) {
-        state.maybeWhen(
-          orElse: () {},
-          initial: () {
-            _menuCubit.getMenus(categoryId);
-          },
-        );
-      },
+    return BlocBuilder<MenuCubit, MenuState>(
       builder: (context, state) {
         return Scaffold(
           appBar: AppBar(
             title: Text(
-              categoryName,
+              widget.categoryName,
             ),
           ),
           body: BlocBuilder<MenuCubit, MenuState>(
@@ -59,11 +65,11 @@ class MenuPage extends StatelessWidget {
                           MenuLookPage(
                             id: menus[index].id.id,
                             name: menus[index].name.getText(const Locale('tk')),
-                            price: menus[index].price.price,
+                            price: menus[index].price.price.toInt(),
                             ingredients: menus[index]
                                 .ingredients
                                 .getMenuList(const Locale('tk')),
-                            categoryName: categoryName,
+                            categoryName: widget.categoryName,
                             image: menus[index].images.getOrigin(),
                           );
                         },
@@ -85,7 +91,7 @@ class MenuPage extends StatelessWidget {
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                Text(menus[index].price.price as String),
+                                Text(menus[index].price.price.toString()),
                                 Row(
                                   crossAxisAlignment: CrossAxisAlignment.end,
                                   mainAxisAlignment:
@@ -105,7 +111,7 @@ class MenuPage extends StatelessWidget {
                             ),
                           ),
                           child: Image.network(
-                            menus[index].images.getOrigin()[0],
+                            menus[index].images.getOrigin(),
                             fit: BoxFit.cover,
                           ),
                         ),

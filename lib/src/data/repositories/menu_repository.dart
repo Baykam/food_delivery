@@ -13,10 +13,18 @@ class MenuRepositoryImpl implements IMenuRepository {
   @override
   Future<List<MenuModell>> getMenuLists(int categoryId) async {
     final response = await getaApi.getMenuApi(categoryId);
-    final list = (response.data as List).map((e) {
-      final model = MenuModel.fromJson(e);
-      return MenuModell.fromModel(model);
-    }).toList();
+    final data = response.data['data'] as List;
+    final List<MenuModell> list = [];
+    for (var d in data) {
+      d['images'] = d['images'][0];
+      final model = MenuModel.fromJson(d);
+      list.add(MenuModell.fromModel(model));
+    }
+    // final list = data.map((e) {
+    //   e['images'] = e['images'][0];
+    //   final model = MenuModel.fromJson(e);
+    //   return MenuModell.fromModel(model);
+    // }).toList();
     return list;
   }
 }
