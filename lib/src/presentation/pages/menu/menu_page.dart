@@ -6,7 +6,7 @@ import '../../common_cubits/counter/counter_cubit.dart';
 import '../../common_cubits/menu/menu_cubit.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
-part 'widgets/menu_first_look_page.dart';
+part './widgets/menu_first_look_page.dart';
 
 @RoutePage()
 class MenuPage extends StatelessWidget {

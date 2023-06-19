@@ -1,4 +1,4 @@
-part of '../menu.dart';
+part of '../menu_page.dart';
 
 class MenuLookPage extends StatelessWidget {
   const MenuLookPage(

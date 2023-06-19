@@ -16,11 +16,11 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(
-          create: (context) => i<CategoriesCubit>()..getCategories(),
+        BlocProvider.value(
+          value: i<CategoriesCubit>()..getCategories(),
         ),
-        BlocProvider(
-          create: (context) => i<MenuCubit>(),
+        BlocProvider.value(
+          value: i<MenuCubit>(),
         ),
         BlocProvider(
           create: (context) => i<CounterCubit>(),

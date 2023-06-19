@@ -10,23 +10,23 @@ class AppRouter extends $AppRouter {
 
   @override
   List<AutoRoute> get routes => [
-        // page: OnboardingRoute.page,
-        // guards: [InitialAuthGuard()],
-        // // initial: true,
-        // path: '/',
-        // children: [
-        // AutoRoute(page: LoginRoute.page),
         AutoRoute(
           path: '/',
           page: MainRoute.page,
           children: [
             AutoRoute(
-              page: HomeRoute.page,
-              // children: [
-              //   AutoRoute(
-              //     page: MenuRoute.page,
-              //   ),
-              // ],
+              path: 'home',
+              page: EmptyRouter.page,
+              children: [
+                AutoRoute(
+                  path: '',
+                  page: HomeRoute.page,
+                ),
+                AutoRoute(
+                  path: ':categoryId',
+                  page: MenuRoute.page,
+                ),
+              ],
             ),
             AutoRoute(
               page: FavoritesRoute.page,
@@ -36,8 +36,8 @@ class AppRouter extends $AppRouter {
             ),
           ],
         ),
-        AutoRoute(
-          page: MenuRoute.page,
-        ),
+        // AutoRoute(
+        //   page: MenuRoute.page,
+        // ),
       ];
 }

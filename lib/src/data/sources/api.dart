@@ -16,7 +16,7 @@ class Api {
 
 class BaseApi {
   final Dio dio = Dio();
-  final baseUrl = 'http://192.168.1.102:8000/api/v1/';
+  final baseUrl = 'http://192.168.50.219:8000/api/v1/';
 }
 
 @singleton

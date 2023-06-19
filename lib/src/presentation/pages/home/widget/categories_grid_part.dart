@@ -28,7 +28,6 @@ class _CategoriesGridPart extends StatelessWidget {
             shrinkWrap: true,
             itemBuilder: (context, index) => InkWell(
               onTap: () {
-                print('çlick');
                 context.router.push(
                   MenuRoute(
                     categoryName: categories[index].name.getText(
@@ -60,13 +59,10 @@ class _CategoriesGridPart extends StatelessWidget {
                     ),
                   ),
                 ),
-                child: SizedBox(),
-                // child: GlobalObjects().isFalse
-                //     ? const SizedBox()
-                //     : Image.network(
-                //         categories[index].image.getOrigin(),
-                //         fit: BoxFit.cover,
-                //       ),
+                child: Image.network(
+                  categories[index].image.getOrigin(),
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
             itemCount: categories.length,
